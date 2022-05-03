@@ -29,7 +29,7 @@ pip3 install -U py-Ultroid
    REDIS_PASSWORD
    ```
 - Check
-[`.env.sample`](https://github.com/TeamUltroid/Ultroid/blob/main/.env.sample) for more details.   
+[`.env.sample`](https://github.com/Zed-Thon/Ultroid/blob/main/.env.sample) for more details.   
 - Run `python3 -m pyUltroid` to start the bot.   
 
 ## Creating plugins
@@ -62,9 +62,9 @@ async def _(e):
     await e.reply("Ultroid Started.")   
 ```
 
-See more working plugins on [the offical repository](https://github.com/TeamUltroid/Ultroid)!
+See more working plugins on [the offical repository](https://github.com/Zed-Thon/Ultroid)!
 
-> Made with 💕 by [@TeamUltroid](https://t.me/TeamUltroid).    
+> Made with 💕 by [@Zed-Thon](https://t.me/Zed-Thon).    
 
 
 # License

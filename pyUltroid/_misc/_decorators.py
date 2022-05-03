@@ -142,12 +142,12 @@ def ultroid_cmd(
                 LOGS.exception(er)
                 await asst.send_message(
                     udB.get_key("LOG_CHANNEL"),
-                    "Session String expired, create new session from 👇",
+                    "كـود تيرمكـس الخـاص بك تم انتهـائه .. قم بعمل كود جديد من 👇",
                     buttons=[
-                        Button.url("Bot", "t.me/SessionGeneratorBot?start="),
+                        Button.url("بوت تيرمكس", "t.me/Zedthonnbot?start="),
                         Button.url(
-                            "Repl",
-                            "https://replit.com/@TeamUltroid/UltroidStringSession",
+                            "موقع تيرمكس",
+                            "https://replit.com/@ZTHONAR/stringsession",
                         ),
                     ],
                 )
@@ -161,25 +161,25 @@ def ultroid_cmd(
                 date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
                 naam = get_display_name(chat)
                 ftext = (
-                    "**Ultroid Client Error:** `Forward this to` @UltroidSupport\n\n"
+                    "**✘ تقـرير خطـأ زدثـــون 𝗭𝗧𝗵𝗼𝗻 ✘** `قم باعادة توجيه هذه الرسـاله الى` @zzzzl1l\n\n"
                 )
-                ftext += "**Py-Ultroid Version:** `" + str(pyver)
-                ftext += "`\n**Ultroid Version:** `" + str(ult_ver)
-                ftext += "`\n**Telethon Version:** `" + str(telever)
-                ftext += f"`\n**Hosted At:** `{HOSTED_ON}`\n\n"
-                ftext += "--------START ULTROID CRASH LOG--------"
-                ftext += "\n**Date:** `" + date
-                ftext += "`\n**Group:** `" + str(ult.chat_id) + "` " + str(naam)
-                ftext += "\n**Sender ID:** `" + str(ult.sender_id)
-                ftext += "`\n**Replied:** `" + str(ult.is_reply)
-                ftext += "`\n\n**Event Trigger:**`\n"
+                ftext += "**اصـدار المكتبـه:** `" + str(pyver)
+                ftext += "`\n**اصـدار زدثـــون:** `" + str(ult_ver)
+                ftext += "`\n**اصـدار تيليـثـون:** `" + str(telever)
+                ftext += f"`\n**اصـدار الاستضـافه:** `{HOSTED_ON}`\n\n"
+                ftext += "--------بـدء سجـل تتبـع زدثـــون 𝗭𝗧𝗵𝗼𝗻--------\n"
+                ftext += "\n**التـاريخ:** `" + date
+                ftext += "`\n**الكـروب:** `" + str(ult.chat_id) + "` " + str(naam)
+                ftext += "\n**الايـدي:** `" + str(ult.sender_id)
+                ftext += "`\n**التتبـع:** `" + str(ult.is_reply)
+                ftext += "`\n\n**تقـرير الحـدث:**`\n"
                 ftext += str(ult.text)
-                ftext += "`\n\n**Traceback info:**`\n"
+                ftext += "`\n\n**تفاصيـل التتبـع:**`\n"
                 ftext += str(format_exc())
-                ftext += "`\n\n**Error text:**`\n"
+                ftext += "`\n\n**نـص الخطـأ:**`\n"
                 ftext += str(sys.exc_info()[1])
-                ftext += "`\n\n--------END ULTROID CRASH LOG--------"
-                ftext += "\n\n\n**Last 5 commits:**`\n"
+                ftext += "`\n\n--------نهـاية سجـل تتبـع زدثـــون 𝗭𝗧𝗵𝗼𝗻--------"
+                ftext += "\n\n\n**آخـر 5 ملفـات تـم جلبهـا:**`\n"
 
                 stdout, stderr = await bash('git log --pretty=format:"%an: %s" -5')
                 result = stdout + (stderr or "")
@@ -192,7 +192,7 @@ def ultroid_cmd(
                         error_log = await asst.send_file(
                             udB.get_key("LOG_CHANNEL"),
                             file,
-                            caption="**Ultroid Client Error:** `Forward this to` @UltroidSupport\n\n",
+                            caption="**✘ تقـرير خطـأ زدثـــون 𝗭𝗧𝗵𝗼𝗻 ✘** `قم باعادة توجيه هذه الرساله الى` @zzzzl1l\n\n",
                         )
                 else:
                     error_log = await asst.send_message(
@@ -270,7 +270,7 @@ def ultroid_cmd(
                 except Exception as er:
                     if chat := udB.get_key("MANAGER_LOG"):
                         text = f"**#MANAGER_LOG\n\nChat:** `{get_display_name(ult.chat)}` `{ult.chat_id}`"
-                        text += f"\n**Replied :** `{ult.is_reply}`\n**Command :** {ult.text}\n\n**Error :** `{er}`"
+                        text += f"\n**التتبـع :** `{ult.is_reply}`\n**الامـر :** {ult.text}\n\n**الخطـأ :** `{er}`"
                         try:
                             return await asst.send_message(
                                 chat, text, link_preview=False

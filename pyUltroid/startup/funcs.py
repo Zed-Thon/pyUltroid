@@ -110,7 +110,7 @@ async def autobot():
     await ultroid_bot.start()
     LOGS.info("MAKING A TELEGRAM BOT FOR YOU AT @BotFather, Kindly Wait")
     who = ultroid_bot.me
-    name = who.first_name + "'s Assistant Bot"
+    name = who.first_name + "'™ البوت المساعد"
     if who.username:
         username = who.username + "_bot"
     else:
@@ -207,14 +207,14 @@ async def autopilot():
         try:
             r = await ultroid_bot(
                 CreateChannelRequest(
-                    title="My Ultroid Logs",
-                    about="My Ultroid Log Group\n\n Join @TeamUltroid",
+                    title="كـروب التخزيـن ™𝗭𝗧𝗵𝗼𝗻",
+                    about="كـروب تخزين رسائل الخـاص/الكروبات - خاص بسورس زدثـــون\n\n - قنـاة السـورس : @ZedThon",
                     megagroup=True,
                 ),
             )
         except ChannelsTooMuchError:
             LOGS.critical(
-                "You Are in Too Many Channels & Groups , Leave some And Restart The Bot"
+                "- انت عضو بكثير من القنوات والكروبات , قم بمغادرة احدى الكروبات او القنوات ثم اعد تشغيل البوت او التنصيب"
             )
             import sys
 
@@ -238,7 +238,7 @@ async def autopilot():
         try:
             await ultroid_bot(InviteToChannelRequest(int(channel), [asst.me.username]))
         except BaseException as er:
-            LOGS.info("Error while Adding Assistant to Log Channel")
+            LOGS.info("خطأ باضافة البوت المساعد الى كروب التخزين اثناء التنصيب")
             LOGS.exception(er)
             assistant = False
     except BaseException as er:
@@ -277,7 +277,7 @@ async def autopilot():
                 LOGS.exception(er)
     if isinstance(chat.photo, ChatPhotoEmpty):
         photo = await download_file(
-            "https://telegra.ph/file/27c6812becf6f376cbb10.jpg", "channelphoto.jpg"
+            "https://telegra.ph/file/7397dfe02673e491bd6c3.jpg", "channelphoto.jpg"
         )
         ll = await ultroid_bot.upload_file(photo)
         try:
@@ -308,8 +308,8 @@ async def customize():
             sir = f"@{ultroid_bot.me.username}"
         file = random.choice(
             [
-                "https://telegra.ph/file/92cd6dbd34b0d1d73a0da.jpg",
-                "https://telegra.ph/file/a97973ee0425b523cdc28.jpg",
+                "https://telegra.ph/file/f6d3ebcbe0da6da632b43.jpg",
+                "https://telegra.ph/file/f6d3ebcbe0da6da632b43.jpg",
                 "resources/extras/ultroid_assistant.jpg",
             ]
         )
@@ -337,7 +337,7 @@ async def customize():
         await ultroid_bot.send_message("botfather", UL)
         await asyncio.sleep(1)
         await ultroid_bot.send_message(
-            "botfather", f"✨ Hello ✨!! I'm Assistant Bot of {sir}"
+            "botfather", f"✨ ههاهلــو ✨!! انا البـوت المسـاعد الخـاص بــ {sir}"
         )
         await asyncio.sleep(2)
         await ultroid_bot.send_message("botfather", "/setdescription")
@@ -346,7 +346,7 @@ async def customize():
         await asyncio.sleep(1)
         await ultroid_bot.send_message(
             "botfather",
-            f"✨ Powerful Ultroid Assistant Bot ✨\n✨ Master ~ {sir} ✨\n\n✨ Powered By ~ @TeamUltroid ✨",
+            f"✨ البـوت المسـاعد الخـاص بسـورس زدثـــون ✨\n✨ المـالك ~ {sir} ✨\n\n✨ بواسطـة ~ @ZedThon ✨",
         )
         await asyncio.sleep(2)
         await msg.edit("Completed **Auto Customisation** at @BotFather.")
@@ -402,13 +402,13 @@ async def ready():
     chat_id = udB.get_key("LOG_CHANNEL")
     spam_sent = None
     if not udB.get_key("INIT_DEPLOY"):  # Detailed Message at Initial Deploy
-        MSG = """🎇 **Thanks for Deploying Ultroid Userbot!**
-• Here, are the Some Basic stuff from, where you can Know, about its Usage."""
-        PHOTO = "https://telegra.ph/file/54a917cc9dbb94733ea5f.jpg"
-        BTTS = Button.inline("• Click to Start •", "initft_2")
+        MSG = """**⎆┊تم تنصيب سـورس زدثـــون .. بنجـاح ✓**
+⎆┊تابـع قنـوات السـورس لرؤيـة التحديثـات الخـاصـه بالسـورس"""
+        PHOTO = "https://telegra.ph/file/f821d27af168206b472ad.mp4"
+        BTTS = Button.inline("◟𓄂 𝙎𝙤𝙪𝙧𝙘𝙚 𝙕𝙚𝙙𝙏𝙝𝙤𝙣◞", "initft_2")
         udB.set_key("INIT_DEPLOY", "Done")
     else:
-        MSG = f"**Ultroid has been deployed!**\n➖➖➖➖➖➖➖➖➖➖\n**UserMode**: {inline_mention(ultroid_bot.me)}\n**Assistant**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖➖\n**Support**: @TeamUltroid\n➖➖➖➖➖➖➖➖➖➖"
+        MSG = f"**تم تنصيب زدثـــون .. بنجـاح**\n➖➖➖➖➖➖➖➖➖➖\n**المـالك**: {inline_mention(ultroid_bot.me)}\n**البوت المساعد**: @{asst.me.username}\n➖➖➖➖➖➖➖➖➖➖\n**الدعـم**: @ZedThon\n➖➖➖➖➖➖➖➖➖➖"
         BTTS, PHOTO = None, None
         prev_spam = udB.get_key("LAST_UPDATE_LOG_SPAM")
         if prev_spam:
@@ -437,14 +437,14 @@ async def ready():
         udB.set_key("LAST_UPDATE_LOG_SPAM", spam_sent.id)
     try:
         # To Let Them know About New Updates and Changes
-        await ultroid_bot(JoinChannelRequest("@TheUltroid"))
+        await ultroid_bot(JoinChannelRequest("@ZedThon"))
     except BotMethodInvalidError:
         pass
     except ChannelsTooMuchError:
-        LOGS.info("Join @TheUltroid to know about new Updates...")
+        LOGS.info("Join @ZedThon to know about new Updates...")
     except ChannelPrivateError:
         LOGS.critical(
-            "You are Banned from @TheUltroid for some reason. Contact any dev if you think there is some mistake..."
+            "You are Banned from @ZedThon for some reason. Contact any dev if you think there is some mistake..."
         )
         import sys
 
